@@ -1,18 +1,25 @@
 //
 //  Question.swift
-//  StartFresh
 //
-//  Created by Joseph Knight on 2/14/24.
+//  Credits to Angela Yu
+//  The App Brewery
+//
 //
 
-import SwiftUI
+import Foundation
 
-struct Question: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct Question {
+    let text: String
+   
+    //Multiple choice questions array.
+    let answers: [String]
+    //
+    let rightAnswer: String
+    
+    //The structure initialiser.
+    init(q: String, a: [String], correctAnswer: String) {
+        text = q
+        answers = a
+        rightAnswer = correctAnswer
     }
-}
-
-#Preview {
-    Question()
 }
