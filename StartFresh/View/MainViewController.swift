@@ -1,8 +1,5 @@
 //  ViewController.swift
 //
-//  Credits to Angela Yu
-//  The App Brewery
-//
 //
 
 import UIKit

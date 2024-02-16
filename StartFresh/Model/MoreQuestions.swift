@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+let quiz1 = [
 Question( q: "What was Helen buying for her niece when Barney saw Andy and Helen kissing?", a:["necklace", "earrings", "bracelet"], correctAnswer:  "bracelet"),
 Question( q: "What was the building number across from the courthouse?", a:["1691", "1751", "1861"], correctAnswer:  "1861"),
 Question( q: "Andy's first vehicle was a?", a:["sedan", "station wagon", "truck"], correctAnswer: "truck"),
@@ -67,4 +67,4 @@ Question( q: "What is the name of the bookie that posed as a barber?", a:[ "Bill
 Question( q: "How much per day did temporary deputies earn?", a:[ "$5.00", "$7.00", "$9.00"], correctAnswer: "$5.00"),
 Question( q: "GAME OVER. \n\n Your score, the number of correct responses out of the 50 questions, is shown above.", a:[ "Play again", "Play again", "Play again"], correctAnswer: "Play again"),
 
-
+]

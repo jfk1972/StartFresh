@@ -1,16 +1,11 @@
 //
-// AppDelegate.swift
-
-//  Credits to Angela Yu
-//  The App Brewery
-//
 
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-var window: UIWindow?
+ var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,7 +18,6 @@ var window: UIWindow?
 
     // MARK: UISceneSession Lifecycle
 
-    // placeholder for ios 12 compatibility
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
@@ -31,7 +25,6 @@ var window: UIWindow?
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
-    // placeholder for ios 12 compatibility
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.

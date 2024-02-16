@@ -1,4 +1,6 @@
 //
+
+
 //  QuizBrain.swift
 //
 //  Credits to Angela Yu
@@ -9,83 +11,69 @@
 import SwiftUI
 import UIKit
 
+var quiz = [""]
+
 struct QuizEngine {
-
     
-    
-
     var score = 0
     var questionNumber = 0
-    
-    let quiz =
-        [
-            // Question 1
-            Question( q: "Where does Barney live?", a:[ "411 Elm Street", "511 Elm Street", "611 Elm Street"], correctAnswer: "411 Elm Street"),
-            Question( q: "Who gave Aunt Bee a broach in the Lost and Found Episode?", a:["Aunt Martha", "Aunt Clara", "Aunt Olive"], correctAnswer: "Aunt Martha"),
-            Question( q: "Which comic was Opie reading in the Sermon for Today episode?", a:[ "Cowboy Bill", "Cowboy Bob", "Little Orphan Annie"], correctAnswer:  "Little Orphan Annie"),
-            
-            
-    ]
-    
-    func getQuestionText() -> String
-    {
-        return quiz[questionNumber].text
-    }
-    
-    //Need a way of fetching the answer choices.
-    func getAnswers() -> [String]
-    {
-        return quiz[questionNumber].answers
-    }
-    
-    func getProgress() -> Float
-    {
-        return Float(questionNumber) / Float(quiz.count)
-    }
-    //here
-    mutating func getCorrectAnswer() -> String
-    {
-        return quiz[questionNumber].rightAnswer }
-    
-    mutating func getScore() -> Int {
-        return score
-    }
-    // add -> Void for gameOver screen
-    mutating func nextQuestion() -> Void
-    {
-        if questionNumber + 1 < quiz.count {
-            questionNumber += 1
-        } else {
-            //future placeholder to show the users their scores
-            yourScore = score
-            totalQuestions = quiz.count
-
-            // show score code goes here
-//
-//            MainViewController.notifyUser(title: "a", message: "b", fromController: MainViewController)
-//
-
-            // show score code goes here
-            
-            
-            
-            
-            questionNumber = 0
-            score = 0
+    // Define an array of Question instances
+        var quiz: [Question] = [
+            Question(q: "In the episode that Ellie wanted to get nice things for Frankie, who was Frankie’s neighbor with the three sons?", a: ["Mr. Jenkins", "Mr. Watson", "Mr. Grady"], correctAnswer: "Mr. Jenkins"),
+            Question(q: "In the foreclosure episode, how much did Scoby owe Ben Weaver?", a: ["$40.75", "$52.50", "$100.80"], correctAnswer: "$52.50"),
+            Question(q: "What was Juanita’s phone number at the diner?", a: ["142R", "217R", "34R"], correctAnswer: "142R"),
+            Question(q: "In the milk money episode, which of these was not one of the bullies that harassed Opie and Andy?", a: ["Sheldon", "Hodie", "Billy"], correctAnswer: "Billy")
+        ]
+        
+        // Shuffle the array of questions
+        mutating func shuffleQuiz() {
+            quiz.shuffle()
         }
-    }
-    
-    mutating func checkAnswer(userAnswer: String) -> Bool {
-        //Need to change answer to rightAnswer here.
-        if userAnswer == quiz[questionNumber].rightAnswer {
-            score += 1
-            return true
-        } else {
-            return false
+
+        // Retrieve the question text for the current question number
+        func getQuestionText() -> String {
+            return quiz[questionNumber].text
         }
+
+        // Retrieve the answer choices for the current question number
+        func getAnswers() -> [String] {
+            return quiz[questionNumber].answers
+        }
+
+        // Calculate the progress of the quiz
+        func getProgress() -> Float {
+            return Float(questionNumber) / Float(quiz.count)
+        }
+
+        // Retrieve the correct answer for the current question number
+        func getCorrectAnswer() -> String {
+            return quiz[questionNumber].rightAnswer
+        }
+
+        // Retrieve the current score
+        func getScore() -> Int {
+            return score
+        }
+
+        // Move to the next question
+        mutating func nextQuestion() {
+            if questionNumber + 1 < quiz.count {
+                questionNumber += 1
+            } else {
+                // Reset the quiz if all questions have been answered
+                questionNumber = 0
+                score = 0
+            }
+        }
+
+        // Check if the user's answer is correct
+        mutating func checkAnswer(userAnswer: String) -> Bool {
+            if userAnswer == quiz[questionNumber].rightAnswer {
+                score += 1
+                return true
+            } else {
+                return false
+            }
+        }
+
     }
-    
-    
-    
-    
-}
